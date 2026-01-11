@@ -12,7 +12,7 @@ app.use(express.json());
 
 /* ================= MONGODB ================= */
 mongoose
-  .connect("mongodb://localhost:27017/etce_portal")
+  .connect(process.env.mongourl)
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => console.error(err));
 
@@ -261,3 +261,4 @@ app.post("/api/faculty/login", async (req, res) => {
 app.listen(5000, () => {
   console.log("🚀 Server running on http://localhost:5000");
 });
+
